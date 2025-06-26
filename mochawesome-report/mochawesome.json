@@ -1,0 +1,219 @@
+{
+  "stats": {
+    "suites": 2,
+    "tests": 2,
+    "passes": 1,
+    "pending": 0,
+    "failures": 1,
+    "start": "2025-06-26T16:59:27.068Z",
+    "end": "2025-06-26T16:59:31.452Z",
+    "duration": 4384,
+    "testsRegistered": 2,
+    "passPercent": 50,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "f44cd96a-9aac-43d4-96e0-4d648f9e0b86",
+      "title": "",
+      "fullFile": "",
+      "file": "",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "68583978-e795-4173-a2e2-1fdcae599bdc",
+          "title": "Sukses Login SauceDemo",
+          "fullFile": "C:\\Users\\izzar\\Videos\\web automation\\Sesi9_Ummu\\tests\\test-login.js",
+          "file": "\\tests\\test-login.js",
+          "beforeHooks": [
+            {
+              "title": "\"before all\" hook in \"Sukses Login SauceDemo\"",
+              "fullTitle": "Sukses Login SauceDemo \"before all\" hook in \"Sukses Login SauceDemo\"",
+              "timedOut": false,
+              "duration": 742,
+              "state": null,
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "const options = new chrome.Options();\ndriver = await new Builder().forBrowser('chrome').setChromeOptions(options).build();",
+              "err": {},
+              "uuid": "403cc9f6-cc31-4e6d-8ddb-bd407bb4f22b",
+              "parentUUID": "68583978-e795-4173-a2e2-1fdcae599bdc",
+              "isHook": true,
+              "skipped": false
+            }
+          ],
+          "afterHooks": [
+            {
+              "title": "\"after all\" hook in \"Sukses Login SauceDemo\"",
+              "fullTitle": "Sukses Login SauceDemo \"after all\" hook in \"Sukses Login SauceDemo\"",
+              "timedOut": false,
+              "duration": 60,
+              "state": null,
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "await driver.quit();",
+              "err": {},
+              "uuid": "2c4c09ef-89ce-4ffa-8ad9-783ac1fada82",
+              "parentUUID": "68583978-e795-4173-a2e2-1fdcae599bdc",
+              "isHook": true,
+              "skipped": false
+            }
+          ],
+          "tests": [
+            {
+              "title": "Harus bisa login dengan kredensial yang valid",
+              "fullTitle": "Sukses Login SauceDemo Harus bisa login dengan kredensial yang valid",
+              "timedOut": false,
+              "duration": 913,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "await driver.get('https://www.saucedemo.com/');\n// Isi form login\nconst inputUsername = await driver.findElement(By.css('[data-test=\"username\"]'));\nconst inputPassword = await driver.findElement(By.css('[data-test=\"password\"]'));\nconst loginButton = await driver.findElement(By.css('[data-test=\"login-button\"]'));\nawait inputUsername.sendKeys('standard_user');\nawait inputPassword.sendKeys('secret_sauce');\nawait loginButton.click();\n// Verifikasi berhasil login dengan mengecek presence shopping cart\nconst cartButton = await driver.wait(\n    until.elementLocated(By.css('[data-test=\"shopping-cart-link\"]')),\n    10000,\n    'Cart button harus muncul setelah login'\n);\nassert(await cartButton.isDisplayed(), 'Cart button tidak terlihat, login gagal');\n// Verifikasi logo halaman\nconst appLogo = await driver.findElement(By.className('app_logo'));\nconst logoText = await appLogo.getText();\nassert.strictEqual(logoText, 'Swag Labs', 'Logo teks tidak sesuai');",
+              "err": {},
+              "uuid": "2fb7d117-3bda-4e03-b440-7c19cdf97012",
+              "parentUUID": "68583978-e795-4173-a2e2-1fdcae599bdc",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "2fb7d117-3bda-4e03-b440-7c19cdf97012"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 913,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 60000
+        },
+        {
+          "uuid": "05a3b943-e8a2-4636-8810-1107e4326b45",
+          "title": "Sort Produk dari A-Z di SauceDemo",
+          "fullFile": "C:\\Users\\izzar\\Videos\\web automation\\Sesi9_Ummu\\tests\\test-sort-produk.js",
+          "file": "\\tests\\test-sort-produk.js",
+          "beforeHooks": [
+            {
+              "title": "\"before all\" hook in \"Sort Produk dari A-Z di SauceDemo\"",
+              "fullTitle": "Sort Produk dari A-Z di SauceDemo \"before all\" hook in \"Sort Produk dari A-Z di SauceDemo\"",
+              "timedOut": false,
+              "duration": 770,
+              "state": null,
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "const options = new chrome.Options();\ndriver = await new Builder().forBrowser('chrome').setChromeOptions(options).build();",
+              "err": {},
+              "uuid": "ebbe7146-7dc9-4bca-9154-62a97771eb31",
+              "parentUUID": "05a3b943-e8a2-4636-8810-1107e4326b45",
+              "isHook": true,
+              "skipped": false
+            }
+          ],
+          "afterHooks": [
+            {
+              "title": "\"after all\" hook in \"Sort Produk dari A-Z di SauceDemo\"",
+              "fullTitle": "Sort Produk dari A-Z di SauceDemo \"after all\" hook in \"Sort Produk dari A-Z di SauceDemo\"",
+              "timedOut": false,
+              "duration": 56,
+              "state": null,
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "await driver.quit();",
+              "err": {},
+              "uuid": "a07a9cea-1a14-429f-a661-ff0e4ea184ce",
+              "parentUUID": "05a3b943-e8a2-4636-8810-1107e4326b45",
+              "isHook": true,
+              "skipped": false
+            }
+          ],
+          "tests": [
+            {
+              "title": "Login dan sort produk dari A-Z",
+              "fullTitle": "Sort Produk dari A-Z di SauceDemo Login dan sort produk dari A-Z",
+              "timedOut": false,
+              "duration": 1834,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "await driver.get('https://www.saucedemo.com/');\n// Login\nawait driver.findElement(By.css('[data-test=\"username\"]')).sendKeys('standard_user');\nawait driver.findElement(By.css('[data-test=\"password\"]')).sendKeys('secret_sauce');\nawait driver.findElement(By.css('[data-test=\"login-button\"]')).click();\n// Tunggu halaman produk muncul\nawait driver.wait(until.elementLocated(By.className('inventory_list')), 10000);\n// Pilih filter sort A-Z\nconst sortDropdown = await driver.findElement(By.css('[data-test=\"product-sort-container\"]'));\nawait sortDropdown.sendKeys('Name (A to Z)');\n// Tunggu sort selesai (opsional: delay)\nawait driver.sleep(1000);\n// Ambil semua nama produk\nconst productElements = await driver.findElements(By.className('inventory_item_name'));\nconst productNames = [];\nfor (let el of productElements) {\n    const name = await el.getText();\n    productNames.push(name);\n}\n// Buat salinan dan urutkan secara manual\nconst sortedNames = [...productNames].sort();\n// Cek apakah urutan produk sudah sesuai dari A-Z\nassert.deepStrictEqual(productNames, sortedNames, 'Produk tidak terurut A-Z');",
+              "err": {
+                "message": "AssertionError: Produk tidak terurut A-Z\n+ actual - expected\n\n  [\n+   'Test.allTheThings() T-Shirt (Red)',\n+   'Sauce Labs Onesie',\n+   'Sauce Labs Fleece Jacket',\n+   'Sauce Labs Bolt T-Shirt',\n+   'Sauce Labs Bike Light',\n    'Sauce Labs Backpack',\n-   'Sauce Labs Bike Light',\n-   'Sauce Labs Bolt T-Shirt',\n-   'Sauce Labs Fleece Jacket',\n-   'Sauce Labs Onesie',\n-   'Test.allTheThings() T-Shirt (Red)'\n  ]\n",
+                "estack": "AssertionError [ERR_ASSERTION]: Produk tidak terurut A-Z\n+ actual - expected\n\n  [\n+   'Test.allTheThings() T-Shirt (Red)',\n+   'Sauce Labs Onesie',\n+   'Sauce Labs Fleece Jacket',\n+   'Sauce Labs Bolt T-Shirt',\n+   'Sauce Labs Bike Light',\n    'Sauce Labs Backpack',\n-   'Sauce Labs Bike Light',\n-   'Sauce Labs Bolt T-Shirt',\n-   'Sauce Labs Fleece Jacket',\n-   'Sauce Labs Onesie',\n-   'Test.allTheThings() T-Shirt (Red)'\n  ]\n\n    at Context.<anonymous> (tests\\test-sort-produk.js:50:16)\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)",
+                "diff": " [\n+   \"Sauce Labs Backpack\"\n+   \"Sauce Labs Bike Light\"\n+   \"Sauce Labs Bolt T-Shirt\"\n+   \"Sauce Labs Fleece Jacket\"\n+   \"Sauce Labs Onesie\"\n   \"Test.allTheThings() T-Shirt (Red)\"\n-   \"Sauce Labs Onesie\"\n-   \"Sauce Labs Fleece Jacket\"\n-   \"Sauce Labs Bolt T-Shirt\"\n-   \"Sauce Labs Bike Light\"\n-   \"Sauce Labs Backpack\"\n ]\n"
+              },
+              "uuid": "c5ebaeae-9e95-460f-a054-8cf67604c4c1",
+              "parentUUID": "05a3b943-e8a2-4636-8810-1107e4326b45",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [],
+          "failures": [
+            "c5ebaeae-9e95-460f-a054-8cf67604c4c1"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 1834,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 30000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 60000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "10.8.2"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": null,
+      "version": "6.2.0"
+    }
+  }
+}
