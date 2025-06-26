@@ -5,7 +5,7 @@ const assert = require('assert');
 describe('Sort Produk dari A-Z di SauceDemo', function () {
     let driver;
 
-    this.timeout(30000); // Set timeout agar tidak timeout saat load lambat
+    this.timeout(30000); // Timeout agar tidak cepat gagal saat proses lambat
 
     before(async function () {
         const options = new chrome.Options();
@@ -27,26 +27,30 @@ describe('Sort Produk dari A-Z di SauceDemo', function () {
         // Tunggu halaman produk muncul
         await driver.wait(until.elementLocated(By.className('inventory_list')), 10000);
 
-        // Pilih filter sort A-Z
-        const sortDropdown = await driver.findElement(By.css('[data-test="product-sort-container"]'));
-        await sortDropdown.sendKeys('Name (A to Z)');
+        // Pilih filter "Name (A to Z)" secara eksplisit
+        const dropdown = await driver.findElement(By.css('[data-test="product-sort-container"]'));
+        await dropdown.click(); // Buka dropdown
+        const optionAZ = await driver.findElement(By.css('option[value="az"]'));
+        await optionAZ.click(); // Pilih A-Z
 
-        // Tunggu sort selesai (opsional: delay)
+        // Tunggu sorting selesai (DOM re-render)
         await driver.sleep(1000);
 
         // Ambil semua nama produk
         const productElements = await driver.findElements(By.className('inventory_item_name'));
         const productNames = [];
-
         for (let el of productElements) {
-            const name = await el.getText();
-            productNames.push(name);
+            productNames.push(await el.getText());
         }
 
-        // Buat salinan dan urutkan secara manual
+        // Buat salinan lalu urutkan
         const sortedNames = [...productNames].sort();
 
-        // Cek apakah urutan produk sudah sesuai dari A-Z
+        // Debug (opsional)
+        console.log("Produk tampil:", productNames);
+        console.log("Produk urut:", sortedNames);
+
+        // Verifikasi: urutan sudah A-Z
         assert.deepStrictEqual(productNames, sortedNames, 'Produk tidak terurut A-Z');
     });
 });

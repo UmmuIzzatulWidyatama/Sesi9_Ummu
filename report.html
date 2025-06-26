@@ -553,13 +553,13 @@ body {
                     <li><span id="toggle-passes" class="toggle-passes">show failures only</span></li>
                 </ul>
                 <ul class="mocha-stats">
-                    <li class="passes">passes: <em>1</em></li>
+                    <li class="passes">passes: <em>2</em></li>
                     <li class="pending">pending: <em>0</em></li>
-                    <li class="failures">failures: <em>1</em></li>
-                    <li class="duration">duration: <em>4.2s</em></li>
+                    <li class="failures">failures: <em>0</em></li>
+                    <li class="duration">duration: <em>5.5s</em></li>
                 </ul>
             </div>
-            <ul id="report"><li class="suite"><h1>Sukses Login SauceDemo</h1><ul><li class="test pass slow"><h2>Harus bisa login dengan kredensial yang valid<span class="duration">772ms</span></h2><pre><code>async function () {
+            <ul id="report"><li class="suite"><h1>Sukses Login SauceDemo</h1><ul><li class="test pass slow"><h2>Harus bisa login dengan kredensial yang valid<span class="duration">1103ms</span></h2><pre><code>async function () {
         await driver.get(&#x27;https://www.saucedemo.com/&#x27;);
         // Isi form login
         const inputUsername = await driver.findElement(By.css(&#x27;[data-test=&#x22;username&#x22;]&#x27;));
@@ -579,7 +579,7 @@ body {
         const appLogo = await driver.findElement(By.className(&#x27;app_logo&#x27;));
         const logoText = await appLogo.getText();
         assert.strictEqual(logoText, &#x27;Swag Labs&#x27;, &#x27;Logo teks tidak sesuai&#x27;);
-    }</code></pre></li></ul></li><li class="suite"><h1>Sort Produk dari A-Z di SauceDemo</h1><ul><li class="test fail"><h2>Login dan sort produk dari A-Z</h2><pre><code>async function () {
+    }</code></pre></li></ul></li><li class="suite"><h1>Sort Produk dari A-Z di SauceDemo</h1><ul><li class="test pass slow"><h2>Login dan sort produk dari A-Z<span class="duration">2739ms</span></h2><pre><code>async function () {
         await driver.get(&#x27;https://www.saucedemo.com/&#x27;);
         // Login
         await driver.findElement(By.css(&#x27;[data-test=&#x22;username&#x22;]&#x27;)).sendKeys(&#x27;standard_user&#x27;);
@@ -587,41 +587,27 @@ body {
         await driver.findElement(By.css(&#x27;[data-test=&#x22;login-button&#x22;]&#x27;)).click();
         // Tunggu halaman produk muncul
         await driver.wait(until.elementLocated(By.className(&#x27;inventory_list&#x27;)), 10000);
-        // Pilih filter sort A-Z
-        const sortDropdown = await driver.findElement(By.css(&#x27;[data-test=&#x22;product-sort-container&#x22;]&#x27;));
-        await sortDropdown.sendKeys(&#x27;Name (A to Z)&#x27;);
-        // Tunggu sort selesai (opsional: delay)
+        // Pilih filter &#x22;Name (A to Z)&#x22; secara eksplisit
+        const dropdown = await driver.findElement(By.css(&#x27;[data-test=&#x22;product-sort-container&#x22;]&#x27;));
+        await dropdown.click(); // Buka dropdown
+        const optionAZ = await driver.findElement(By.css(&#x27;option[value=&#x22;az&#x22;]&#x27;));
+        await optionAZ.click(); // Pilih A-Z
+        // Tunggu sorting selesai (DOM re-render)
         await driver.sleep(1000);
         // Ambil semua nama produk
         const productElements = await driver.findElements(By.className(&#x27;inventory_item_name&#x27;));
         const productNames = [];
         for (let el of productElements) {
-            const name = await el.getText();
-            productNames.push(name);
+            productNames.push(await el.getText());
         }
-        // Buat salinan dan urutkan secara manual
+        // Buat salinan lalu urutkan
         const sortedNames = [...productNames].sort();
-        // Cek apakah urutan produk sudah sesuai dari A-Z
+        // Debug (opsional)
+        console.log(&#x22;Produk tampil:&#x22;, productNames);
+        console.log(&#x22;Produk urut:&#x22;, sortedNames);
+        // Verifikasi: urutan sudah A-Z
         assert.deepStrictEqual(productNames, sortedNames, &#x27;Produk tidak terurut A-Z&#x27;);
-    }</code></pre><pre class="error">AssertionError [ERR_ASSERTION]: Produk tidak terurut A-Z
-&#x1B;[32m+ actual&#x1B;[39m &#x1B;[31m- expected&#x1B;[39m
-
-&#x1B;[39m  [
-&#x1B;[32m+&#x1B;[39m   &#x27;Test.allTheThings() T-Shirt (Red)&#x27;,
-&#x1B;[32m+&#x1B;[39m   &#x27;Sauce Labs Onesie&#x27;,
-&#x1B;[32m+&#x1B;[39m   &#x27;Sauce Labs Fleece Jacket&#x27;,
-&#x1B;[32m+&#x1B;[39m   &#x27;Sauce Labs Bolt T-Shirt&#x27;,
-&#x1B;[32m+&#x1B;[39m   &#x27;Sauce Labs Bike Light&#x27;,
-&#x1B;[39m    &#x27;Sauce Labs Backpack&#x27;,
-&#x1B;[31m-&#x1B;[39m   &#x27;Sauce Labs Bike Light&#x27;,
-&#x1B;[31m-&#x1B;[39m   &#x27;Sauce Labs Bolt T-Shirt&#x27;,
-&#x1B;[31m-&#x1B;[39m   &#x27;Sauce Labs Fleece Jacket&#x27;,
-&#x1B;[31m-&#x1B;[39m   &#x27;Sauce Labs Onesie&#x27;,
-&#x1B;[31m-&#x1B;[39m   &#x27;Test.allTheThings() T-Shirt (Red)&#x27;
-&#x1B;[39m  ]
-
-    at Context.&#x3C;anonymous&#x3E; (tests\test-sort-produk.js:50:16)
-    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)</pre></li></ul></li></ul>
+    }</code></pre></li></ul></li></ul>
         </div>
         <script>
         function hideSuitesWithout(className) {
