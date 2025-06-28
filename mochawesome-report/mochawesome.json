@@ -5,9 +5,9 @@
     "passes": 2,
     "pending": 0,
     "failures": 0,
-    "start": "2025-06-26T17:04:22.919Z",
-    "end": "2025-06-26T17:04:27.901Z",
-    "duration": 4982,
+    "start": "2025-06-28T15:01:32.650Z",
+    "end": "2025-06-28T15:01:39.115Z",
+    "duration": 6465,
     "testsRegistered": 2,
     "passPercent": 100,
     "pendingPercent": 0,
@@ -18,7 +18,7 @@
   },
   "results": [
     {
-      "uuid": "a2c1764d-baf1-4b23-990d-d635f5838155",
+      "uuid": "64329889-4f4e-44a0-9d94-c67186329644",
       "title": "",
       "fullFile": "",
       "file": "",
@@ -27,7 +27,7 @@
       "tests": [],
       "suites": [
         {
-          "uuid": "0aef32e9-bcd4-454e-9092-a4ef5e396f97",
+          "uuid": "8c82d6ed-f004-41e8-97ba-a65a868bb4ed",
           "title": "Sukses Login SauceDemo",
           "fullFile": "C:\\Users\\izzar\\Videos\\web automation\\Sesi9_Ummu\\tests\\test-login.js",
           "file": "\\tests\\test-login.js",
@@ -36,7 +36,7 @@
               "title": "\"before all\" hook in \"Sukses Login SauceDemo\"",
               "fullTitle": "Sukses Login SauceDemo \"before all\" hook in \"Sukses Login SauceDemo\"",
               "timedOut": false,
-              "duration": 779,
+              "duration": 1972,
               "state": null,
               "speed": null,
               "pass": false,
@@ -45,8 +45,8 @@
               "context": null,
               "code": "const options = new chrome.Options();\ndriver = await new Builder().forBrowser('chrome').setChromeOptions(options).build();",
               "err": {},
-              "uuid": "e9d89116-9f3d-4157-9631-f3e04a5a954c",
-              "parentUUID": "0aef32e9-bcd4-454e-9092-a4ef5e396f97",
+              "uuid": "24d4bb59-d6dc-474a-870a-52047ea3ba2d",
+              "parentUUID": "8c82d6ed-f004-41e8-97ba-a65a868bb4ed",
               "isHook": true,
               "skipped": false
             }
@@ -56,7 +56,7 @@
               "title": "\"after all\" hook in \"Sukses Login SauceDemo\"",
               "fullTitle": "Sukses Login SauceDemo \"after all\" hook in \"Sukses Login SauceDemo\"",
               "timedOut": false,
-              "duration": 73,
+              "duration": 90,
               "state": null,
               "speed": null,
               "pass": false,
@@ -65,8 +65,8 @@
               "context": null,
               "code": "await driver.quit();",
               "err": {},
-              "uuid": "27945fe6-ed14-4b7a-9869-9649fbb037b2",
-              "parentUUID": "0aef32e9-bcd4-454e-9092-a4ef5e396f97",
+              "uuid": "cf051aa3-da33-4c5f-951c-83a7ef1a148a",
+              "parentUUID": "8c82d6ed-f004-41e8-97ba-a65a868bb4ed",
               "isHook": true,
               "skipped": false
             }
@@ -76,7 +76,7 @@
               "title": "Harus bisa login dengan kredensial yang valid",
               "fullTitle": "Sukses Login SauceDemo Harus bisa login dengan kredensial yang valid",
               "timedOut": false,
-              "duration": 961,
+              "duration": 1605,
               "state": "passed",
               "speed": "slow",
               "pass": true,
@@ -85,26 +85,26 @@
               "context": null,
               "code": "await driver.get('https://www.saucedemo.com/');\n// Isi form login\nconst inputUsername = await driver.findElement(By.css('[data-test=\"username\"]'));\nconst inputPassword = await driver.findElement(By.css('[data-test=\"password\"]'));\nconst loginButton = await driver.findElement(By.css('[data-test=\"login-button\"]'));\nawait inputUsername.sendKeys('standard_user');\nawait inputPassword.sendKeys('secret_sauce');\nawait loginButton.click();\n// Verifikasi berhasil login dengan mengecek presence shopping cart\nconst cartButton = await driver.wait(\n    until.elementLocated(By.css('[data-test=\"shopping-cart-link\"]')),\n    10000,\n    'Cart button harus muncul setelah login'\n);\nassert(await cartButton.isDisplayed(), 'Cart button tidak terlihat, login gagal');\n// Verifikasi logo halaman\nconst appLogo = await driver.findElement(By.className('app_logo'));\nconst logoText = await appLogo.getText();\nassert.strictEqual(logoText, 'Swag Labs', 'Logo teks tidak sesuai');",
               "err": {},
-              "uuid": "b7866776-5a17-4ba7-94ec-38e97ae2facb",
-              "parentUUID": "0aef32e9-bcd4-454e-9092-a4ef5e396f97",
+              "uuid": "1c0e2ee8-07f9-4ac4-b224-5407fe98f1d4",
+              "parentUUID": "8c82d6ed-f004-41e8-97ba-a65a868bb4ed",
               "isHook": false,
               "skipped": false
             }
           ],
           "suites": [],
           "passes": [
-            "b7866776-5a17-4ba7-94ec-38e97ae2facb"
+            "1c0e2ee8-07f9-4ac4-b224-5407fe98f1d4"
           ],
           "failures": [],
           "pending": [],
           "skipped": [],
-          "duration": 961,
+          "duration": 1605,
           "root": false,
           "rootEmpty": false,
           "_timeout": 60000
         },
         {
-          "uuid": "0371428d-f829-4bca-92fb-ea64becb9db0",
+          "uuid": "4f86a1ce-93d6-4961-be4a-7c59d2109e7d",
           "title": "Sort Produk dari A-Z di SauceDemo",
           "fullFile": "C:\\Users\\izzar\\Videos\\web automation\\Sesi9_Ummu\\tests\\test-sort-produk.js",
           "file": "\\tests\\test-sort-produk.js",
@@ -113,7 +113,7 @@
               "title": "\"before all\" hook in \"Sort Produk dari A-Z di SauceDemo\"",
               "fullTitle": "Sort Produk dari A-Z di SauceDemo \"before all\" hook in \"Sort Produk dari A-Z di SauceDemo\"",
               "timedOut": false,
-              "duration": 839,
+              "duration": 830,
               "state": null,
               "speed": null,
               "pass": false,
@@ -122,8 +122,8 @@
               "context": null,
               "code": "const options = new chrome.Options();\ndriver = await new Builder().forBrowser('chrome').setChromeOptions(options).build();",
               "err": {},
-              "uuid": "afbd6e19-abba-46c4-b62f-ddb366354323",
-              "parentUUID": "0371428d-f829-4bca-92fb-ea64becb9db0",
+              "uuid": "00027b85-d456-484a-9213-3cd45eb807b2",
+              "parentUUID": "4f86a1ce-93d6-4961-be4a-7c59d2109e7d",
               "isHook": true,
               "skipped": false
             }
@@ -133,7 +133,7 @@
               "title": "\"after all\" hook in \"Sort Produk dari A-Z di SauceDemo\"",
               "fullTitle": "Sort Produk dari A-Z di SauceDemo \"after all\" hook in \"Sort Produk dari A-Z di SauceDemo\"",
               "timedOut": false,
-              "duration": 82,
+              "duration": 62,
               "state": null,
               "speed": null,
               "pass": false,
@@ -142,8 +142,8 @@
               "context": null,
               "code": "await driver.quit();",
               "err": {},
-              "uuid": "c55f890a-821d-459c-bcd8-13e24e2a1272",
-              "parentUUID": "0371428d-f829-4bca-92fb-ea64becb9db0",
+              "uuid": "7c1405cf-e2ab-4007-bdcf-19c900a91e8e",
+              "parentUUID": "4f86a1ce-93d6-4961-be4a-7c59d2109e7d",
               "isHook": true,
               "skipped": false
             }
@@ -153,7 +153,7 @@
               "title": "Login dan sort produk dari A-Z",
               "fullTitle": "Sort Produk dari A-Z di SauceDemo Login dan sort produk dari A-Z",
               "timedOut": false,
-              "duration": 2238,
+              "duration": 1897,
               "state": "passed",
               "speed": "slow",
               "pass": true,
@@ -162,20 +162,20 @@
               "context": null,
               "code": "await driver.get('https://www.saucedemo.com/');\n// Login\nawait driver.findElement(By.css('[data-test=\"username\"]')).sendKeys('standard_user');\nawait driver.findElement(By.css('[data-test=\"password\"]')).sendKeys('secret_sauce');\nawait driver.findElement(By.css('[data-test=\"login-button\"]')).click();\n// Tunggu halaman produk muncul\nawait driver.wait(until.elementLocated(By.className('inventory_list')), 10000);\n// Pilih filter \"Name (A to Z)\" secara eksplisit\nconst dropdown = await driver.findElement(By.css('[data-test=\"product-sort-container\"]'));\nawait dropdown.click(); // Buka dropdown\nconst optionAZ = await driver.findElement(By.css('option[value=\"az\"]'));\nawait optionAZ.click(); // Pilih A-Z\n// Tunggu sorting selesai (DOM re-render)\nawait driver.sleep(1000);\n// Ambil semua nama produk\nconst productElements = await driver.findElements(By.className('inventory_item_name'));\nconst productNames = [];\nfor (let el of productElements) {\n    productNames.push(await el.getText());\n}\n// Buat salinan lalu urutkan\nconst sortedNames = [...productNames].sort();\n// Debug (opsional)\nconsole.log(\"Produk tampil:\", productNames);\nconsole.log(\"Produk urut:\", sortedNames);\n// Verifikasi: urutan sudah A-Z\nassert.deepStrictEqual(productNames, sortedNames, 'Produk tidak terurut A-Z');",
               "err": {},
-              "uuid": "45138eea-c760-4c10-9566-123aba78f7c1",
-              "parentUUID": "0371428d-f829-4bca-92fb-ea64becb9db0",
+              "uuid": "36f4a61a-a252-4fcf-ba31-3267ad9d4579",
+              "parentUUID": "4f86a1ce-93d6-4961-be4a-7c59d2109e7d",
               "isHook": false,
               "skipped": false
             }
           ],
           "suites": [],
           "passes": [
-            "45138eea-c760-4c10-9566-123aba78f7c1"
+            "36f4a61a-a252-4fcf-ba31-3267ad9d4579"
           ],
           "failures": [],
           "pending": [],
           "skipped": [],
-          "duration": 2238,
+          "duration": 1897,
           "root": false,
           "rootEmpty": false,
           "_timeout": 30000

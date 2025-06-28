@@ -9,6 +9,9 @@ describe('Sort Produk dari A-Z di SauceDemo', function () {
 
     before(async function () {
         const options = new chrome.Options();
+        //options.addArguments("--headless"); //untuk mode headless
+        options.addArguments("--incognito"); //untuk membuka incognito mode
+
         driver = await new Builder().forBrowser('chrome').setChromeOptions(options).build();
     });
 
