@@ -556,10 +556,10 @@ body {
                     <li class="passes">passes: <em>2</em></li>
                     <li class="pending">pending: <em>0</em></li>
                     <li class="failures">failures: <em>0</em></li>
-                    <li class="duration">duration: <em>5.5s</em></li>
+                    <li class="duration">duration: <em>4.9s</em></li>
                 </ul>
             </div>
-            <ul id="report"><li class="suite"><h1>Sukses Login SauceDemo</h1><ul><li class="test pass slow"><h2>Harus bisa login dengan kredensial yang valid<span class="duration">1103ms</span></h2><pre><code>async function () {
+            <ul id="report"><li class="suite"><h1>Sukses Login SauceDemo</h1><ul><li class="test pass slow"><h2>Harus bisa login dengan kredensial yang valid<span class="duration">973ms</span></h2><pre><code>async function () {
         await driver.get(&#x27;https://www.saucedemo.com/&#x27;);
         // Isi form login
         const inputUsername = await driver.findElement(By.css(&#x27;[data-test=&#x22;username&#x22;]&#x27;));
@@ -579,7 +579,7 @@ body {
         const appLogo = await driver.findElement(By.className(&#x27;app_logo&#x27;));
         const logoText = await appLogo.getText();
         assert.strictEqual(logoText, &#x27;Swag Labs&#x27;, &#x27;Logo teks tidak sesuai&#x27;);
-    }</code></pre></li></ul></li><li class="suite"><h1>Sort Produk dari A-Z di SauceDemo</h1><ul><li class="test pass slow"><h2>Login dan sort produk dari A-Z<span class="duration">2739ms</span></h2><pre><code>async function () {
+    }</code></pre></li></ul></li><li class="suite"><h1>Sort Produk dari A-Z di SauceDemo</h1><ul><li class="test pass slow"><h2>Login dan sort produk dari A-Z<span class="duration">2191ms</span></h2><pre><code>async function () {
         await driver.get(&#x27;https://www.saucedemo.com/&#x27;);
         // Login
         await driver.findElement(By.css(&#x27;[data-test=&#x22;username&#x22;]&#x27;)).sendKeys(&#x27;standard_user&#x27;);
